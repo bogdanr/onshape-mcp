@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 782 132" width="782" height="132" role="img" aria-label="onshape-mcp">
+  <title>onshape-mcp</title>
+  <!-- The mark: a circle with its dimension drawn above it. -->
+  <rect x="0" y="10" width="112" height="112" rx="14" fill="#2257D6"/>
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <circle cx="56" cy="80" r="26" stroke-width="8"/>
+    <path d="M30 24V56M82 24V56M39 33H73" stroke-width="4"/>
+  </g>
+  <path d="M31 33l12-5.5v11zM81 33l-12-5.5v11z" fill="#FFFFFF"/>
+  <!-- The name, built from circles and straight lines only. -->
+  <g fill="none" stroke="#17233B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="174" cy="76" r="24"/>
+    <path d="M214 52V100M214 72a20 20 0 0 1 40 0V100"/>
+    <path d="M291.8 57.1A12 12 0 1 0 282 76A12 12 0 1 1 272.2 94.9"/>
+    <path d="M310 24V100M310 72a20 20 0 0 1 40 0V100"/>
+    <circle cx="390" cy="76" r="24"/><path d="M414 52V100"/>
+    <path d="M433 52V126"/><circle cx="457" cy="76" r="24"/>
+    <path d="M494 76H542A24 24 0 1 0 536.4 91.4"/>
+    <path d="M556 76H574"/>
+    <path d="M588 52V100M588 68a16 16 0 0 1 32 0V100M620 68a16 16 0 0 1 32 0V100"/>
+    <path d="M710.4 60.6A24 24 0 1 0 710.4 91.4"/>
+    <path d="M725 52V126"/><circle cx="749" cy="76" r="24"/>
+  </g>
+</svg>

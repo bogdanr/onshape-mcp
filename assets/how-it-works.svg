@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 496" width="1040" height="496" role="img" aria-labelledby="hiw-title hiw-desc">
+  <title id="hiw-title">How onshape-mcp makes one change</title>
+  <desc id="hiw-desc">An engineering sheet with three views of a 60 by 40 by 5 mm plate with one hole. View 1: a sketch whose hole can still move is refused. View 2: with two more dimensions the sketch is fully defined and is sent. View 3: the built plate is measured from the document: 11 858.8 cubic millimetres against 11 858.6 calculated, hole diameter 6.00 at (15.00, 20.00). A strip below names the three plugs (AI client, CAD system, where geometry jobs run) and the request budget.</desc>
+  <style>
+    text { font-family: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+
+    /* Light: ink on drafting film. Blue is geometry that can still move, as in a sketch editor. */
+    .paper   { fill: #F4F6FA; }
+    .frame   { fill: none; stroke: #17233B; stroke-width: 1.5; }
+    .ink     { fill: none; stroke: #17233B; stroke-width: 2.4; stroke-linejoin: round; }
+    .thin    { fill: none; stroke: #5A6A85; stroke-width: 1.1; }
+    .centre  { fill: none; stroke: #5A6A85; stroke-width: 1.1; stroke-dasharray: 9 3 2 3; }
+    .free    { fill: none; stroke: #2257D6; stroke-width: 2.4; }
+    .step    { fill: none; stroke: #17233B; stroke-width: 1.6; }
+    .head    { fill: #5A6A85; }
+    .inkhead { fill: #17233B; }
+    .bluehead { fill: #2257D6; }
+    .top     { fill: #FFFFFF; }
+    .side1   { fill: #E1E7F0; }
+    .side2   { fill: #CCD5E3; }
+    .dot     { fill: #17233B; }
+    .title   { fill: #17233B; font-size: 18px; font-weight: 600; }
+    .num     { fill: #17233B; font-size: 14px; font-weight: 600; text-anchor: middle; }
+    .dim     { fill: #17233B; font-size: 14px; text-anchor: middle; }
+    .note    { fill: #44526B; font-size: 14px; }
+    .small   { fill: #44526B; font-size: 12.5px; }
+    .value   { fill: #17233B; font-size: 14px; }
+    .strong  { fill: #17233B; font-size: 15px; font-weight: 600; }
+    .said    { fill: #B93226; font-size: 12px; }
+
+    /* Dark: the same sheet as a blueprint. */
+    @media (prefers-color-scheme: dark) {
+      .paper   { fill: #102A52; }
+      .frame   { stroke: #DCE7F7; }
+      .ink     { stroke: #F1F6FD; }
+      .thin, .centre { stroke: #9DB5D9; }
+      .free    { stroke: #6FD0FF; }
+      .step    { stroke: #F1F6FD; }
+      .head    { fill: #9DB5D9; }
+      .inkhead { fill: #F1F6FD; }
+      .bluehead { fill: #6FD0FF; }
+      .top     { fill: #1D4078; }
+      .side1   { fill: #17366A; }
+      .side2   { fill: #0C2143; }
+      .dot, .title, .num, .dim, .value, .strong { fill: #F1F6FD; }
+      .note, .small { fill: #B5C7E3; }
+      .said    { fill: #FFA394; }
+    }
+  </style>
+  <defs>
+    <marker id="tip" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path class="head" d="M0 0L10 3.5L0 7z"/></marker>
+    <marker id="tail" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><path class="head" d="M10 0L0 3.5L10 7z"/></marker>
+    <marker id="go" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="9" refX="12" refY="4.5" orient="auto"><path class="inkhead" d="M0 0L12 4.5L0 9z"/></marker>
+    <marker id="slide" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path class="bluehead" d="M0 0L9 3.5L0 7z"/></marker>
+  </defs>
+
+  <!-- the sheet and its border -->
+  <rect class="paper" width="1040" height="496" rx="8"/>
+  <rect class="frame" x="12" y="12" width="1016" height="472"/>
+
+  <!-- ============ 1. a sketch whose hole can still move ============ -->
+  <circle class="step" cx="65" cy="50" r="12"/><text class="num" x="65" y="55">1</text>
+  <text class="title" x="86" y="56">Refuse what can still move</text>
+
+  <rect class="ink" x="99" y="124" width="204" height="136"/>
+  <circle class="top" cx="99" cy="260" r="5"/><circle class="thin" cx="99" cy="260" r="5"/><circle class="dot" cx="99" cy="260" r="1.8"/>
+  <!-- 60 and 40 -->
+  <path class="thin" d="M99 266V288M303 264V288M93 260H71M95 124H71"/>
+  <path class="thin" d="M99 282H303" marker-start="url(#tail)" marker-end="url(#tip)"/>
+  <path class="thin" d="M77 260V124" marker-start="url(#tail)" marker-end="url(#tip)"/>
+  <text class="dim" x="201" y="277">60</text>
+  <text class="dim" transform="translate(72 192) rotate(-90)">40</text>
+  <!-- the hole: it has a size but no position -->
+  <circle class="free" cx="150" cy="192" r="10.2"/>
+  <path class="free" d="M165 192H183" marker-end="url(#slide)"/>
+  <path class="free" d="M135 192H117" marker-end="url(#slide)"/>
+  <path class="free" d="M150 177V159" marker-end="url(#slide)"/>
+  <path class="free" d="M150 207V225" marker-end="url(#slide)"/>
+  <path class="thin" d="M157.2 184.8L179 163H211"/>
+  <text class="dim" x="195" y="158">Ø6</text>
+
+  <text class="said mono" x="53" y="348">NOT fully defined: 2 movements still free.</text>
+  <text class="said mono" x="53" y="367" xml:space="preserve">  circle 'hole': centre x, centre y</text>
+  <text class="note" x="53" y="386">Nothing is sent, so nothing is spent.</text>
+
+  <!-- step arrow -->
+  <path class="step" d="M320 192H371" marker-end="url(#go)"/>
+  <text class="small" x="345.5" y="167" text-anchor="middle">add two</text>
+  <text class="small" x="345.5" y="182" text-anchor="middle">dimensions</text>
+
+  <!-- ============ 2. the same sketch, fully defined ============ -->
+  <circle class="step" cx="400" cy="50" r="12"/><text class="num" x="400" y="55">2</text>
+  <text class="title" x="421" y="56">Send what is fully defined</text>
+
+  <rect class="ink" x="456" y="124" width="204" height="136"/>
+  <circle class="top" cx="456" cy="260" r="5"/><circle class="thin" cx="456" cy="260" r="5"/><circle class="dot" cx="456" cy="260" r="1.8"/>
+  <circle class="ink" cx="507" cy="192" r="10.2"/>
+  <path class="centre" d="M489 192H525M507 174V210"/>
+  <!-- extension lines -->
+  <path class="thin" d="M456 266V312M660 264V312M507 264V288M450 260H404M452 124H404M452 192H428"/>
+  <!-- 15 and 60 -->
+  <path class="thin" d="M456 282H507" marker-start="url(#tail)" marker-end="url(#tip)"/>
+  <path class="thin" d="M456 306H660" marker-start="url(#tail)" marker-end="url(#tip)"/>
+  <text class="dim" x="481.5" y="277">15</text>
+  <text class="dim" x="558" y="301">60</text>
+  <!-- 20 and 40 -->
+  <path class="thin" d="M434 260V192" marker-start="url(#tail)" marker-end="url(#tip)"/>
+  <path class="thin" d="M410 260V124" marker-start="url(#tail)" marker-end="url(#tip)"/>
+  <text class="dim" transform="translate(429 226) rotate(-90)">20</text>
+  <text class="dim" transform="translate(405 192) rotate(-90)">40</text>
+  <path class="thin" d="M514.2 184.8L536 163H568"/>
+  <text class="dim" x="552" y="158">Ø6</text>
+
+  <text class="note" x="388" y="348">Positioned from the origin, with dimensions</text>
+  <text class="note" x="388" y="367">you can click and change in the editor.</text>
+  <text class="note" x="388" y="386">One request per feature, counted first.</text>
+
+  <!-- step arrow -->
+  <path class="step" d="M677 192H728" marker-end="url(#go)"/>
+  <text class="small" x="702.5" y="167" text-anchor="middle">extrude</text>
+  <text class="small" x="702.5" y="182" text-anchor="middle">5 mm</text>
+
+  <!-- ============ 3. the built plate, measured ============ -->
+  <circle class="step" cx="757" cy="50" r="12"/><text class="num" x="757" y="55">3</text>
+  <text class="title" x="778" y="56">Measure what was built</text>
+
+  <path class="side1" d="M745 171L890.5 255V269L745 185z"/>
+  <path class="side2" d="M890.5 255L987.5 199V213L890.5 269z"/>
+  <path class="top" d="M842 115L987.5 199L890.5 255L745 171z"/>
+  <path class="ink" d="M842 115L987.5 199V213L890.5 269L745 185V171zM745 171L890.5 255L987.5 199M890.5 255V269"/>
+  <ellipse class="side2" cx="829.9" cy="164" rx="10.3" ry="5.9"/>
+  <ellipse class="ink" cx="829.9" cy="164" rx="10.3" ry="5.9"/>
+  <path class="thin" d="M764 96H962M829.9 96V157" marker-end="url(#tip)"/>
+  <text class="value" x="764" y="90">hole Ø6.00 at (15.00, 20.00)</text>
+  <text class="value" x="866" y="296" text-anchor="middle">60.00 × 40.00 × 5.00 mm</text>
+  <text class="strong" x="866" y="316" text-anchor="middle">11 858.8 mm³<tspan class="note" font-weight="400" dx="7">(calculated 11 858.6)</tspan></text>
+
+  <text class="note" x="745" y="348">Measured on geometry pulled back from</text>
+  <text class="note" x="745" y="367">the document at one exact version,</text>
+  <text class="note" x="745" y="386">never on what was intended.</text>
+
+  <!-- ============ title strip: the three plugs and the budget ============ -->
+  <path class="frame" d="M12 410H1028M260 410V484M452 410V484M644 410V484M836 410V484"/>
+  <text class="small" x="26" y="431">This sheet</text>
+  <text class="value" x="26" y="451">Blue geometry can still move.</text>
+  <text class="value" x="26" y="469">All sizes in millimetres.</text>
+  <text class="small" x="274" y="431">AI client</text>
+  <text class="value" x="274" y="451">Any MCP client,</text>
+  <text class="value" x="274" y="469">or any shell</text>
+  <text class="small" x="466" y="431">CAD system</text>
+  <text class="value" x="466" y="451">Onshape, or STL</text>
+  <text class="value" x="466" y="469">files (read only)</text>
+  <text class="small" x="658" y="431">Geometry jobs</text>
+  <text class="value" x="658" y="451">On this machine,</text>
+  <text class="value" x="658" y="469">or another over SSH</text>
+  <text class="small" x="850" y="431">Request budget</text>
+  <text class="value" x="850" y="451">Every request counted</text>
+  <text class="value" x="850" y="469">before it is sent</text>
+</svg>

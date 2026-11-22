@@ -1,0 +1,28 @@
+# Copy to onshape-mcp.toml in your design project's folder (or to ~/.config/onshape-mcp/config.toml for
+# machine-wide settings). Later files override earlier ones key by key; see src/onshape_mcp/config.py.
+
+[project]
+name = "my-design"      # requests are charged to this name in the ledger
+budget = 0              # total requests the owner has approved for this project. 0 = spend nothing.
+
+[backend]
+type = "onshape"
+# API keys: set ONSHAPE_ACCESS_KEY and ONSHAPE_SECRET_KEY in the environment, or name a file here.
+# The file may hold JSON {"access_key": "...", "secret_key": "..."} or lines ACCESS_KEY=... / SECRET_KEY=...
+# credentials_file = "~/.config/onshape-mcp/keys.json"
+# ledger = "~/.config/onshape-mcp/ledger.json"   # one ledger per Onshape account; default: inside the store
+# year_limit = 500                               # your plan's yearly request allowance, if it has one
+# reserve = 20                                   # never spend the last few of the year without asking
+
+[runner]
+type = "local"          # geometry jobs run on this machine ...
+# python = "/path/to/venv/bin/python"
+
+# ... or on another machine over SSH (key-based login; nothing is installed there):
+# type = "ssh"
+# host = "user@cad-box.local"
+# python = "~/cad-venv/bin/python"
+# workdir = "~/onshape-mcp-jobs"
+
+[store]
+dir = "~/.cache/onshape-mcp"    # snapshots of what was read, so re-reading costs no requests

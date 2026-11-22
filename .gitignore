@@ -1,0 +1,8 @@
+__pycache__/
+*.egg-info/
+build/
+dist/
+
+# Local settings and data: machine names, key file locations, snapshots of private models
+/onshape-mcp.toml
+/.store/
