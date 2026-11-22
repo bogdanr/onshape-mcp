@@ -66,7 +66,8 @@ onshape-mcp view  bracket.stl      # a picture from four sides (needs Pillow)
 
 ```sh
 cd ~/my-design
-cp /path/to/onshape-mcp/config.example.toml onshape-mcp.toml    # set the budget and where your API keys are
+cp /path/to/onshape-mcp/config.example.toml onshape-mcp.toml
+$EDITOR onshape-mcp.toml           # set the budget and where your API keys are
 onshape-mcp status
 onshape-mcp read "https://cad.onshape.com/documents/<doc>/w/<workspace>/e/<tab>"
 ```

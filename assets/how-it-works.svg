@@ -2,7 +2,7 @@
   <title id="hiw-title">How onshape-mcp makes one change</title>
   <desc id="hiw-desc">An engineering sheet with three views of a 60 by 40 by 5 mm plate with one hole. View 1: a sketch whose hole can still move is refused. View 2: with two more dimensions the sketch is fully defined and is sent. View 3: the built plate is measured from the document: 11 858.8 cubic millimetres against 11 858.6 calculated, hole diameter 6.00 at (15.00, 20.00). A strip below names the three plugs (AI client, CAD system, where geometry jobs run) and the request budget.</desc>
   <style>
-    text { font-family: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    text { font-family: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", "Nimbus Sans", sans-serif; }
     .mono { font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
 
     /* Light: ink on drafting film. Blue is geometry that can still move, as in a sketch editor. */
@@ -22,12 +22,12 @@
     .dot     { fill: #17233B; }
     .title   { fill: #17233B; font-size: 18px; font-weight: 600; }
     .num     { fill: #17233B; font-size: 14px; font-weight: 600; text-anchor: middle; }
-    .dim     { fill: #17233B; font-size: 14px; text-anchor: middle; }
-    .note    { fill: #44526B; font-size: 14px; }
-    .small   { fill: #44526B; font-size: 12.5px; }
+    .dim     { fill: #17233B; font-size: 15px; text-anchor: middle; }
+    .note    { fill: #44526B; font-size: 15px; }
+    .small   { fill: #44526B; font-size: 13px; }
     .value   { fill: #17233B; font-size: 14px; }
-    .strong  { fill: #17233B; font-size: 15px; font-weight: 600; }
-    .said    { fill: #B93226; font-size: 12px; }
+    .strong  { fill: #17233B; font-size: 16px; font-weight: 600; }
+    .said    { fill: #B93226; font-size: 12.5px; }
 
     /* Dark: the same sheet as a blueprint. */
     @media (prefers-color-scheme: dark) {
@@ -112,8 +112,8 @@
   <path class="thin" d="M514.2 184.8L536 163H568"/>
   <text class="dim" x="552" y="158">Ø6</text>
 
-  <text class="note" x="388" y="348">Positioned from the origin, with dimensions</text>
-  <text class="note" x="388" y="367">you can click and change in the editor.</text>
+  <text class="note" x="388" y="348">Positioned from the origin, with</text>
+  <text class="note" x="388" y="367">dimensions you can click and change.</text>
   <text class="note" x="388" y="386">One request per feature, counted first.</text>
 
   <!-- step arrow -->
@@ -133,16 +133,16 @@
   <ellipse class="ink" cx="829.9" cy="164" rx="10.3" ry="5.9"/>
   <path class="thin" d="M764 96H962M829.9 96V157" marker-end="url(#tip)"/>
   <text class="value" x="764" y="90">hole Ø6.00 at (15.00, 20.00)</text>
-  <text class="value" x="866" y="296" text-anchor="middle">60.00 × 40.00 × 5.00 mm</text>
+  <text class="value" x="866" y="295" text-anchor="middle">60.00 × 40.00 × 5.00 mm</text>
   <text class="strong" x="866" y="316" text-anchor="middle">11 858.8 mm³<tspan class="note" font-weight="400" dx="7">(calculated 11 858.6)</tspan></text>
 
-  <text class="note" x="745" y="348">Measured on geometry pulled back from</text>
-  <text class="note" x="745" y="367">the document at one exact version,</text>
-  <text class="note" x="745" y="386">never on what was intended.</text>
+  <text class="note" x="745" y="348">Measured on the geometry pulled</text>
+  <text class="note" x="745" y="367">back from the document, never on</text>
+  <text class="note" x="745" y="386">what was meant to be built.</text>
 
   <!-- ============ title strip: the three plugs and the budget ============ -->
   <path class="frame" d="M12 410H1028M260 410V484M452 410V484M644 410V484M836 410V484"/>
-  <text class="small" x="26" y="431">This sheet</text>
+  <text class="small" x="26" y="432">This sheet</text>
   <text class="value" x="26" y="451">Blue geometry can still move.</text>
   <text class="value" x="26" y="469">All sizes in millimetres.</text>
   <text class="small" x="274" y="431">AI client</text>
