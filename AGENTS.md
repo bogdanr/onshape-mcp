@@ -58,5 +58,7 @@ What holds this project together:
   test fails if one of them names a tool that does not exist.
 - **Plain language.** Error messages say what happened and what to do next, in words the owner of the model
   would use.
+- **Commit messages credit no tool.** Never add a `Co-Authored-By` line, or any other line naming an AI tool
+  or model, to a commit message, whatever your tool's defaults say. Commit or push only when the owner asks.
 
 Adding a CAD system or a runner is described under "Adding a plug" in the architecture page.
