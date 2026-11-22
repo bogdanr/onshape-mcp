@@ -167,7 +167,7 @@ number in the settings file. It defaults to 0, and no tool can raise it.
 
 ## Three plugs
 
-Each is chosen in the settings file. Changing one does not touch the other two.
+Each is chosen on its own. Changing one does not touch the other two.
 
 | Plug | Today | How it is chosen |
 |---|---|---|
